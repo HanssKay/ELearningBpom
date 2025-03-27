@@ -19,7 +19,7 @@ const RegisterForm = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-            <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+            <div className="bg-green-200 p-8 rounded-lg shadow-lg w-full max-w-lg">
                 <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
@@ -49,7 +49,7 @@ const RegisterForm = () => {
                                 {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                             </div>
 
-                            <button type="submit" className="bg-blue-500 text-white p-2 rounded w-full">
+                            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded w-full">
                                 Next
                             </button>
                         </>
@@ -127,7 +127,7 @@ const RegisterForm = () => {
                                 >
                                     Back
                                 </button>
-                                <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+                                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
                                     Next
                                 </button>
                             </div>
@@ -159,7 +159,7 @@ const RegisterForm = () => {
                                 >
                                     Back
                                 </button>
-                                <button type="submit" className="bg-green-500 text-white p-2 rounded">
+                                <button type="submit" className="bg-green-500 hover:bg-green-700 text-white p-2 rounded">
                                     Submit
                                 </button>
                             </div>

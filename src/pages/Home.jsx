@@ -1,25 +1,27 @@
+import learn from "../assets/learn.png";
+
+
+
 const Home = () => {
     return (
-        <div className="min-h-screen w-full flex flex-col items-center justify-center text-white bg-cover bg-center relative"
-            style={{ backgroundImage: "url('/aset/bganime.jpg')" }}
-        >
-            {/* Overlay Gelap */}
-            <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
-
-            {/* Konten */}
-            <div className="relative z-10 text-center px-6 flex flex-col items-center justify-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    Selamat Datang di E-Learning BBPOM
-                </h1>
-                <p className="text-lg md:text-xl mb-6 max-w-xl text-center">
-                    Platform pembelajaran online untuk peserta magang BBPOM. <br />
-                    Bergabung dan kembangkan keterampilanmu!
-                </p>
-                <a href="/login" className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">
-                    Mulai Sekarang
-                </a>
-            </div>
+        <>
+        <div className="flex justify-center w-full -z-10 h-screen bg-gradient-to-b from-[var(--color-one)] to-[var(--color-two)]">
+            <div className="md:flex flex-col-2 gap-32 md:top-0 top-20 relative items-center">
+                <div className="flex flex-col ">
+                    <h1 className="flex md:text-start text-center flex-col md:text-4xl text-xl font-bold">Mari Ikuti Program Magang <br/>bersama Kahayan Inpro </h1>
+                    <p className="mt-2 md:text-xl text-lg text-center md:px-0 px-5 md:text-start">Bergabunglah dengan program magang eksklusif kami dan dapatkan
+                        <br/> pengalaman kerja nyata yang akan membentuk masa depan kariermu.
+                        <br/> Belajar langsung dari para profesional dan tingkatkan keterampilanmu sekarang. </p>
+                    <button className="w-40 md:mt-5 md:top-0 top-[250px] md:left-0 left-[120px] md:relative absolute border-1 p-1 rounded-md bg-blue-400 hover:bg-blue-700">
+                        <a href="/register">Daftar Sekarang</a>
+                    </button>
+                </div>
+                <div className="flex ">
+                    <img className=" md:h-[310px] h-60 md:ms-0 ms-10 md:mt-6 mt-[82px]" src={learn} alt="" />
+                </div>
+            </div>  
         </div>
+        </>
     );
 };
 

@@ -37,11 +37,11 @@ const Login = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-lg">
+                    <button type="submit" className="w-full bg-blue-400 hover:bg-blue-700 text-white p-2 rounded-lg">
                         Login
                     </button>
                     <p className="mt-2 text-sm text-center">
-                        Belum punya akun? <a href="/register" className="text-blue-500">Daftar</a>
+                        Belum punya akun? <a href="/register" className="text-blue-700">Daftar</a>
                     </p>
                 </form>
             </div>
