@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const RegisterForm = () => {
     const [step, setStep] = useState(1);
@@ -8,25 +9,47 @@ const RegisterForm = () => {
     const [formData, setFormData] = useState({});
     const navigate = useNavigate();
 
-    // Function untuk menangani submit tiap step
-    const onSubmit = (data) => {
-        setFormData({ ...formData, ...data });
+    // Fungsi submit tiap step
+    const onSubmit = async (data) => {
+        const finalData = { ...formData, ...data };
+
         if (step < 3) {
+            setFormData(finalData);
             setStep(step + 1);
         } else {
-            console.log("Final Data:", { ...formData, ...data });
-            alert("Registrasi berhasil!");
-            navigate ("/")
+            // Step terakhir: kirim data ke backend
+            const formDataToSend = new FormData();
+            // Sesuaikan field sesuai backend
+            formDataToSend.append("full_name", finalData.nama);
+            formDataToSend.append("email", finalData.email);
+            formDataToSend.append("phone_number", finalData.nomorTelepon);
+            formDataToSend.append("address", finalData.alamat);
+            formDataToSend.append("birth_date", finalData.tanggalLahir);
+            formDataToSend.append("occupation", finalData.pekerjaan);
+            formDataToSend.append("identity_number", finalData.nimNik);
+            formDataToSend.append("selected_course", finalData.course);
+            // Perhatikan: finalData.lampiran adalah FileList, gunakan file pertama
+            formDataToSend.append("document", finalData.lampiran[0]);
+
+            try {
+                const response = await axios.post("http://localhost:5000/api/register", formDataToSend, {
+                    headers: { "Content-Type": "multipart/form-data" }
+                });
+                alert("Pendaftaran berhasil!");
+                console.log("Response:", response.data);
+                navigate("/");
+            } catch (error) {
+                console.error("Pendaftaran gagal:", error.response ? error.response.data : error);
+                alert("Pendaftaran gagal, coba lagi.");
+            }
         }
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-linear-to-b from-[var(--color-one)] to-[var(--color-two)] p-6">
-            <div className="bg-white p-4.5 rounded-lg shadow-xl  mt-17 border-1 border-black w-full max-w-lg">
+        <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-blue-200 to-blue-500 p-6">
+            <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-lg">
                 <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
-
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                    {/* Step 1 - Nama & Email */}
                     {step === 1 && (
                         <>
                             <div>
@@ -34,7 +57,7 @@ const RegisterForm = () => {
                                 <input
                                     type="text"
                                     {...register("nama", { required: "Nama harus diisi" })}
-                                     placeholder={errors?.nama ? errors?.nama.message : "Masukkan nama"}
+                                    placeholder={errors?.nama ? errors?.nama.message : "Masukkan nama"}
                                     className={` p-2 w-full rounded ${errors?.nama ? "font-semibold border-2 border-red-500 text-red-500" : "border-1 border-black"}`}
                                 />
                             </div>
@@ -50,16 +73,13 @@ const RegisterForm = () => {
                                     placeholder={errors.email ? errors.email.message : "Masukkan email"}
                                     className={`border-1 border-black p-2 w-full rounded ${errors.email ? " font-semibold border-2 border-red-500 text-red-500" : "border-1 border-black"}`}
                                 />
-                                
-                            </div>
 
-                            <button type="submit" className="bg-blue-500 cursor-pointer hover:bg-blue-800 text-white p-2 rounded w-full">
+                            </div>
+                            <button type="submit" className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white p-2 rounded">
                                 Next
                             </button>
                         </>
                     )}
-
-                    {/* Step 2 - Nomor Telepon, Alamat, etc */}
                     {step === 2 && (
                         <>
                             <div>
@@ -120,23 +140,20 @@ const RegisterForm = () => {
                                     className={`border p-1 w-full rounded ${errors?.lampiran ? "border-2 text-red-500 font-semibold border-red-500" : "border-black"}`}
                                 />
                             </div>
-
-                            <div className="flex mt-3 justify-between">
+                            <div className="flex justify-between">
                                 <button
                                     type="button"
                                     onClick={() => setStep(step - 1)}
-                                    className="bg-gray-400 hover:bg-gray-600 text-white cursor-pointer p-2 rounded"
+                                    className="bg-gray-500 hover:bg-gray-700 cursor-pointer text-white p-2 rounded"
                                 >
                                     Back
                                 </button>
-                                <button type="submit" className="bg-blue-400 cursor-pointer hover:bg-blue-700 text-white p-2 rounded">
+                                <button type="submit" className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white p-2 rounded">
                                     Next
                                 </button>
                             </div>
                         </>
                     )}
-
-                    {/* Step 3 - Pilih Course */}
                     {step === 3 && (
                         <>
                             <div>
@@ -148,22 +165,21 @@ const RegisterForm = () => {
                                     <option value="" className="text-gray-400">
                                         {errors?.course ? errors.course.message : "Pilih Course"}
                                     </option>
-                                   <option value="Web Development">Web Development</option>
+                                    <option value="Web Development">Web Development</option>
                                     <option value="Data Science">Data Science</option>
                                     <option value="Cyber Security">Cyber Security</option>
                                 </select>
                             </div>
 
-
                             <div className="flex justify-between">
                                 <button
                                     type="button"
                                     onClick={() => setStep(step - 1)}
-                                    className="bg-gray-400 hover:bg-gray-700 cursor-pointer text-white p-2 rounded"
+                                    className="bg-gray-500 hover:bg-gray-700 cursor-pointer text-white p-2 rounded"
                                 >
                                     Back
                                 </button>
-                                <button type="submit" className="bg-green-500 cursor-pointer hover:bg-green-700 text-white p-2 rounded">
+                                <button type="submit" className="bg-green-500  cursor-pointer hover:bg-green-700 text-white p-2 rounded">
                                     Submit
                                 </button>
                             </div>

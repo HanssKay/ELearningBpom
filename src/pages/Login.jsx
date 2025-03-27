@@ -13,7 +13,7 @@ const Login = () => {
     };
 
     return (
-        <div className="flex h-screen items-center justify-center bg-gray-100">
+        <div className="flex h-screen items-center justify-center bg-linear-to-b from-[var(--color-one)] to-[var(--color-two)]">
             <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
                 <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
                 <form onSubmit={handleLogin}>
@@ -21,7 +21,7 @@ const Login = () => {
                         <label className="block text-sm font-medium text-gray-600">Email</label>
                         <input
                             type="email"
-                            className="w-full p-2 border rounded-lg"
+                            className="w-full p-2 border-1 border-black rounded-lg"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -31,13 +31,13 @@ const Login = () => {
                         <label className="block text-sm font-medium text-gray-600">Password</label>
                         <input
                             type="password"
-                            className="w-full p-2 border rounded-lg"
+                            className="w-full p-2 border-1 border-black rounded-lg"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                     </div>
-                    <button type="submit" className="w-full bg-blue-400 hover:bg-blue-700 text-white p-2 rounded-lg">
+                    <button type="submit" className="w-full cursor-pointer bg-blue-400 hover:bg-blue-700 text-white p-2 rounded-lg">
                         Login
                     </button>
                     <p className="mt-2 text-sm text-center">
