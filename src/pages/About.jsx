@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
     return (
-        <div className="bg-gradient-to-b from-blue-100 to-white py-10 px-5 md:px-20">
+        <div className="bg-linear-to-b from-blue-100 to-white py-10 px-5 md:px-20">
 
             {/* KAHAYAN INPRO Section */}
             <section className="text-center md:text-left flex flex-col md:flex-row items-center gap-10 md:gap-20">
@@ -280,7 +280,7 @@ const About = () => {
                         {/* Kiri: Daftar Format/Poin */}
                         <div className="w-full md:w-1/2 space-y-4">
                             {/* 1. FORMAT SURAT PERMOHONAN */}
-                            <div className="bg-gradient-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
+                            <div className="bg-linear-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
                                 <span className="text-white text-xl">📄</span>
                                 <span className="font-semibold text-white">
                                     FORMAT SURAT PERMOHONAN
@@ -288,7 +288,7 @@ const About = () => {
                             </div>
 
                             {/* 2. FORMAT LAPORAN */}
-                            <div className="bg-gradient-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
+                            <div className="bg-linear-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
                                 <span className="text-white text-xl">📝</span>
                                 <span className="font-semibold text-white">
                                     FORMAT LAPORAN
@@ -296,7 +296,7 @@ const About = () => {
                             </div>
 
                             {/* 3. PELAPORAN HASIL PKL/PENELITIAN */}
-                            <div className="bg-gradient-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
+                            <div className="bg-linear-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
                                 <span className="text-white text-xl">📊</span>
                                 <span className="font-semibold text-white">
                                     PELAPORAN HASIL PKL/PENELITIAN
@@ -304,7 +304,7 @@ const About = () => {
                             </div>
 
                             {/* 4. SURVEI KEPUASAN PELANGGAN */}
-                            <div className="bg-gradient-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
+                            <div className="bg-linear-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
                                 <span className="text-white text-xl">✅</span>
                                 <span className="font-semibold text-white">
                                     SURVEI KEPUASAN PELANGGAN
@@ -312,7 +312,7 @@ const About = () => {
                             </div>
 
                             {/* 5. MODUL PKL/PENELITIAN */}
-                            <div className="bg-gradient-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
+                            <div className="bg-linear-to-r from-yellow-400 to-red-400 px-6 py-3 rounded-full flex items-center gap-3">
                                 <span className="text-white text-xl">📚</span>
                                 <span className="font-semibold text-white">
                                     MODUL PKL/PENELITIAN
@@ -358,32 +358,32 @@ const About = () => {
                         <img
                             src="src/assets/diagram.png"
                             alt="Foto 1"
-                            className="rounded-lg shadow"
+                            className="rounded-lg shadow-sm"
                         />
                         <img
                             src="src/assets/diagram.png"
                             alt="Foto 2"
-                            className="rounded-lg shadow"
+                            className="rounded-lg shadow-sm"
                         />
                         <img
                             src="src/assets/diagram.png"
                             alt="Foto 3"
-                            className="rounded-lg shadow"
+                            className="rounded-lg shadow-sm"
                         />
                         <img
                             src="src/assets/diagram.png"
                             alt="Foto 4"
-                            className="rounded-lg shadow"
+                            className="rounded-lg shadow-sm"
                         />
                         <img
                             src="src/assets/diagram.png"
                             alt="Foto 5"
-                            className="rounded-lg shadow"
+                            className="rounded-lg shadow-sm"
                         />
                         <img
                             src="src/assets/diagram.png"
                             alt="Foto 6"
-                            className="rounded-lg shadow"
+                            className="rounded-lg shadow-sm"
                         />
                     </div>
                 </motion.div>
