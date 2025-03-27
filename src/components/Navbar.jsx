@@ -38,7 +38,7 @@ const Navbar = () => {
                 </h1>
             </div>
             <nav>
-                <ul className={`absolute md:gap-4 md:py-0 py-3 items-center rounded-md md:top-0 md:right-[70px] right-[50px] md:w-full w-[100px] text-center top-[70px] md:relative md:flex md:bg-transparent bg-blue-900 transition-all duration-300 ease-in-out ${isOpen ? "block" : "hidden"}`}>
+                <ul className={`absolute md:gap-4 md:py-0 py-3 items-center rounded-md md:top-0 md:right-[30px] right-[50px] md:w-full w-[100px] text-center top-[70px] md:relative md:flex md:bg-transparent bg-blue-900 transition-all duration-300 ease-in-out ${isOpen ? "block" : "hidden"}`}>
                     <li>
                         <Link to="/" className="text-white font-bold hover:text-blue-500 transition duration-300">
                             Home

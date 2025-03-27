@@ -1,9 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import learn from "../assets/learn.png";
+import learn2 from "../assets/learn2.png";
+import learn3 from "../assets/learn3.png";
+import learn4 from "../assets/learn4.png";
+
 
 const About = () => {
     return (
-        <div className="bg-linear-to-b from-blue-100 to-white py-10 px-5 md:px-20">
+        <div className="bg-gradient-to-b from-blue-300 via-white to-blue-300 py-10 px-5 md:px-20">
 
             {/* KAHAYAN INPRO Section */}
             <section className="text-center md:text-left flex flex-col md:flex-row items-center gap-10 md:gap-20">
@@ -27,22 +32,31 @@ const About = () => {
             </section>
 
             {/* Tentang KAHAYAN INPRO */}
-            <section className="mt-16 grid md:grid-cols-2 gap-10 items-center">
-                <motion.img
-                    src="src/assets/diagram.png"
-                    alt="Tentang Kahayan Inpro"
-                    className="rounded-lg shadow-lg"
-                    initial={{ opacity: 0, x: -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                />
-                <p className="text-gray-700 leading-relaxed">
-                    Dalam rangka meningkatkan pengetahuan/keterampilan pelajar/mahasiswa di bidang pengawasan obat dan makanan,
-                    BBPOM di Palangka Raya membuka pelaksanaan praktik kerja lapangan dan magang. KAHAYAN INPRO merupakan inovasi
-                    yang dikembangkan untuk memudahkan pelaksanaan tersebut. Program ini merupakan singkatan dari
-                    <strong> KemudAHAn dan KenYaman LayanAN INternshiP & Research PrOgram.</strong>
-                </p>
+            <section className="mt-16 flex md:flex-cols-2 gap-10 items-center">
+                <div className="w-full justify-center md:mt-27 md:ms-2 mt-14">
+                    <div className="mt-4">
+                        <h1 className="lg:text-3xl md:text-3xl text-blue-900">Tentang</h1>
+                        <h1 className="lg:text-6xl md:text-4xl font-extrabold text-blue-900">KAHAYAN INPRO</h1>
+                    </div>
+                    <div className="flex md:justify-end justify-center md:mt-[-100px] mt-35 me-[-15px] gap-2" >
+                        <img className="lg:h-40 md:h-30 h-25 mt-5 " src={learn4} alt="" />
+                        <img className="lg:h-40 md:h-30 h-25 " src={learn2} alt="" />
+                        <div class="absolute rounded-s-md right-0 lg:top-240 md:top-60 top-92 lg:w-140 md:w-100 w-90 md:h-[18px] h-[10px] bg-gradient-to-l from-blue-500 to-white-500"></div>
+                    </div>
+                </div>                
             </section>
+            <div className="flex justify-center">
+                <div className="">
+                    <img className="h-80" src={learn3} alt="" />
+                </div>
+                <div>
+                    <p>
+                    Dalam rangka meningkatkan pengetahuan/keterampilan pelajar/mahasiswa di bidang pengawasan obat dan makanan, BBPOM di Palangka Raya membuka  pelaksanaan praktik kerja lapangan dan magang di lingkungan BBPOM di Palangka Raya. KAHAYAN INPRO merupakan sebuah inovasi yang dikembangkan untuk memberikan kemudahan pada pelaksanaan praktik kerja lapangan dan magang di lingkungan BBPOM di Palangka Raya. KAHAYAN INRPO merupakan singkatan dari KemudAHAn dan KenYaman LayanAN INternshiP & Research PrOgram. 
+                    Nama KAHAYAN sendiri terinspirasi dari nama sungai yang mengalir membelah kota Palangka Raya dan menjadi sumber kehidupan bagi masayarakat di Kalimantan Tengah. 
+                    KAHAYAN INPRO menyediakan berbagai informasi seputar pelaksanaan praktik kerja lapangan dan magang di lingkungan BBPOM di Palangka Raya, yang meliputi modul pelaksanaan praktik kerja lapangan dan penelitian, alur dan proses, tata tertib, materi pembelajaran, format surat permohonan, format laporan akhir, dan informasi penting lainnya.
+                    </p>
+                </div>
+            </div>
 
             {/* TUJUAN KAMI Section */}
             <section className="mt-16 bg-blue-50 p-10 rounded-lg shadow-lg">
@@ -448,12 +462,7 @@ const About = () => {
         FOOTER (BARU)
         ==========================
       */}
-            <footer className="w-full bg-blue-900 rounded-lg text-white py-6 text-center">
-                <p className="text-sm">
-                    &copy; {new Date().getFullYear()} Balai Besar POM di Palangka Raya.
-                    All Rights Reserved.
-                </p>
-            </footer>
+            
         </div>
     );
 };
